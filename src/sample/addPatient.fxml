@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PatientAddController">
+   <children>
+      <VBox layoutX="84.0" prefHeight="323.0" prefWidth="462.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Ajouter un patient">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="26.0" prefWidth="462.0">
+               <children>
+                  <TextField fx:id="textfieldprenom" prefHeight="25.0" prefWidth="215.0" promptText="Prénom du patient">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField id="nom" fx:id="textfieldnom" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="215.0" promptText="Nom du patient">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <TextField id="adresse" fx:id="textfieldadresse" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="215.0" promptText="Adresse du patient">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField id="tel" fx:id="textfieldtel" layoutX="20.0" layoutY="85.0" promptText="Téléphone">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField id="mail" fx:id="textfieldmail" layoutX="20.0" layoutY="85.0" promptText="Mail">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField id="infosMed" fx:id="textfieldinfosMed" layoutX="10.0" layoutY="135.0" prefHeight="24.0" prefWidth="442.0" promptText="Informations médicales">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <HBox prefHeight="32.0" prefWidth="402.0">
+               <children>
+                  <Button id="annulerP" fx:id="buttonannulerP" cancelButton="true" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #ff6666;" text="Annuler" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="buttonajouterPatient" mnemonicParsing="false" onAction="#addPatient" style="-fx-background-color: #1ab7ea;" text="Ajouter" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="330.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="40.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
