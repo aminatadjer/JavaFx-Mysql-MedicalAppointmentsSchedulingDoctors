@@ -42,7 +42,7 @@ public class PatientAddController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        dataBaseHandler = new DataBaseHandler();
+        dataBaseHandler=DataBaseHandler.getInstance();
     }
 
     @FXML

@@ -19,7 +19,7 @@ public class DataBaseHandler {
         return handler;
     }
 
-    public DataBaseHandler() {
+    private DataBaseHandler() {
         createConnection();
     }
 
