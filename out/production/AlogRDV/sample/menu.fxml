@@ -3,7 +3,6 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuController">
     <children>
@@ -32,7 +31,7 @@
             <right>
                 <VBox prefHeight="445.0" prefWidth="154.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Button fx:id="ajouterPatient" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadAddPatient" prefHeight="150.0" prefWidth="154.0" text="Ajouter Patient">
+                        <Button fx:id="ajouterPatient" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadAddPatient" prefHeight="150.0" prefWidth="155.0" text="Ajouter Patient">
                             <graphic>
 
                             </graphic>
@@ -61,104 +60,53 @@
                 </VBox>
             </right>
             <center>
-                <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                <TabPane prefHeight="412.0" prefWidth="547.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
                     <tabs>
-                        <Tab text="Tab1">
+                        <Tab text="Aujourd'hui">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                    <children>
-                                        <VBox prefHeight="412.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <children>
-                                                <HBox alignment="CENTER" prefHeight="200.0" prefWidth="1000.0">
-                                                    <children>
-                                                        <TextField>
-                                                            <HBox.margin>
-                                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                                            </HBox.margin>
-                                                        </TextField>
-                                                        <VBox alignment="CENTER" prefHeight="151.0" prefWidth="387.0">
-                                                            <HBox.margin>
-                                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                                            </HBox.margin>
-                                                            <children>
-                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="xxx" textAlignment="CENTER" wrappingWidth="346.8388671875">
-                                                                    <VBox.margin>
-                                                                        <Insets top="10.0" />
-                                                                    </VBox.margin>
-                                                                </Text>
-                                                                <Text layoutX="10.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xxxx" textAlignment="CENTER" wrappingWidth="346.8388671875">
-                                                                    <VBox.margin>
-                                                                        <Insets top="10.0" />
-                                                                    </VBox.margin>
-                                                                </Text>
-                                                            </children>
-                                                        </VBox>
-                                                    </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="1000.0">
-                                                    <children>
-                                                        <TextField>
-                                                            <HBox.margin>
-                                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                                            </HBox.margin>
-                                                        </TextField>
-                                                        <VBox alignment="CENTER" prefHeight="151.0" prefWidth="387.0">
-                                                            <HBox.margin>
-                                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                                            </HBox.margin>
-                                                            <children>
-                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="yyy" textAlignment="CENTER" wrappingWidth="346.8388671875">
-                                                                    <VBox.margin>
-                                                                        <Insets top="10.0" />
-                                                                    </VBox.margin>
-                                                                </Text>
-                                                                <Text layoutX="10.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="yyyy" textAlignment="CENTER" wrappingWidth="346.8388671875">
-                                                                    <VBox.margin>
-                                                                        <Insets top="10.0" />
-                                                                    </VBox.margin>
-                                                                </Text>
-                                                            </children>
-                                                        </VBox>
-                                                    </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                                    <children>
-                                                        <Button text="Issue" />
-                                                    </children>
-                                                </HBox>
-                                            </children>
-                                        </VBox>
-                                    </children></AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="377.0" prefWidth="557.0">
+
+                                    <TableView fx:id="tableRdv" minWidth="-Infinity" prefHeight="383.0" prefWidth="601.0">
+                                        <columns>
+                                            <TableColumn fx:id="id" prefWidth="38.0" text="id" />
+                                            <TableColumn fx:id="idPatient" prefWidth="67.0" text="idPatient" />
+                                            <TableColumn fx:id="nomEtPrenomP" prefWidth="166.0" text="Nom et prénom du patient" />
+                                            <TableColumn fx:id="date" prefWidth="96.0" text="Date" />
+                                            <TableColumn fx:id="heure" prefWidth="70.0" text="Heure" />
+                                            <TableColumn fx:id="objet" prefWidth="162.0" text="Objet" />
+                                        </columns>
+                                    </TableView>
+                           <Button layoutX="252.0" layoutY="383.0" mnemonicParsing="false" onAction="#loadTodayRdv" text="Reload" />
+
+                                </AnchorPane>
                             </content>
                         </Tab>
-                        <Tab text="Tab2">
+                        <Tab text="Autre Jour">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+
                                     <children>
                                         <BorderPane layoutX="251.0" layoutY="71.0" prefHeight="412.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <top>
-                                                <TextField maxWidth="274.0" minWidth="274.0" prefHeight="32.0" prefWidth="274.0" BorderPane.alignment="CENTER">
-                                                    <BorderPane.margin>
-                                                        <Insets top="10.0" />
-                                                    </BorderPane.margin>
-                                                </TextField>
-                                            </top>
                                             <center>
-                                                <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                                    <padding>
-                                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                                                    </padding>
+                                                <ListView prefHeight="289.0" prefWidth="557.0" BorderPane.alignment="CENTER">
+
+                                                        <TableView fx:id="tableRdvA" minWidth="-Infinity" prefHeight="383.0" prefWidth="601.0">
+                                                            <columns>
+                                                                <TableColumn fx:id="idA" prefWidth="38.0" text="id" />
+                                                                <TableColumn fx:id="idPatientA" prefWidth="67.0" text="idPatient" />
+                                                                <TableColumn fx:id="nomEtPrenomPA" prefWidth="166.0" text="Nom et prénom du patient" />
+                                                                <TableColumn fx:id="dateA" prefWidth="96.0" text="Date" />
+                                                                <TableColumn fx:id="heureA" prefWidth="70.0" text="Heure" />
+                                                                <TableColumn fx:id="objetA" prefWidth="162.0" text="Objet" />
+                                                            </columns>
+                                                        </TableView>
+
                                                 </ListView>
                                             </center>
                                             <bottom>
                                                 <HBox alignment="CENTER" prefHeight="69.0" prefWidth="557.0" BorderPane.alignment="CENTER">
                                                     <children>
-                                                        <Button text="Renew">
-                                                            <HBox.margin>
-                                                                <Insets right="20.0" />
-                                                            </HBox.margin>
-                                                        </Button>
-                                                        <Button text="Submission">
+                                                        <Button onAction="#loadOtherDay" text="Recherche">
                                                             <HBox.margin>
                                                                 <Insets right="20.0" />
                                                             </HBox.margin>
@@ -166,6 +114,13 @@
                                                     </children>
                                                 </HBox>
                                             </bottom>
+                                 <top>
+                                    <DatePicker fx:id="autreJour" prefHeight="30.0" prefWidth="174.0" BorderPane.alignment="CENTER">
+                                       <BorderPane.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </BorderPane.margin>
+                                    </DatePicker>
+                                 </top>
                                         </BorderPane>
                                     </children></AnchorPane>
                             </content>
