@@ -22,6 +22,7 @@
               <items>
                 <MenuItem mnemonicParsing="false" text="Supprimer" onAction="#handleRdvDelete" />
                   <MenuItem mnemonicParsing="false" text="Modifier" onAction="#handleRdvUpdate" />
+                  <MenuItem mnemonicParsing="false" text="Imprimer" onAction="#handlePrintRdv" />
               </items>
             </ContextMenu>
          </contextMenu>

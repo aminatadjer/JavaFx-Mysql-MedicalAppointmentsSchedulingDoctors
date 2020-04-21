@@ -67,7 +67,7 @@ String nometprenom;
             return;
         }
         String q="Select nom,prenom from patient where id="+idPatientR.toString();
-        System.out.println(q);
+
         ResultSet rs = dataBaseHandler.execQuery(q);
         int cpt=0;
         String nomEtPrenomP="";
@@ -90,7 +90,7 @@ String nometprenom;
             return;
         }
         String query = "INSERT INTO `rdv` (`idPatient`, `nomEtPrenomP`, `date`,`heure`, `objet`) VALUES ('" + idPatientR + "', '" + nomEtPrenomP + "','" + dateR + "','" + heureR + "', '" + objetR + "')";
-        System.out.println(query);
+
         if (dataBaseHandler.execAction(query)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);

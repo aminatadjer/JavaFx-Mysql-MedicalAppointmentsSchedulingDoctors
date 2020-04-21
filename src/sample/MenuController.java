@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -60,14 +57,32 @@ public class MenuController implements Initializable {
     public TableColumn<Rdv,String> objetA;
     @FXML
     public DatePicker autreJour;
-
+    @FXML
+    public TableView<Rdv> tableRdvP;
+    @FXML
+    public TableColumn<Rdv,Integer> idP;
+    @FXML
+    public TableColumn<Rdv,Integer> idPatientP;
+    @FXML
+    public TableColumn<Rdv,String> nomEtPrenomPP;
+    @FXML
+    public TableColumn<Rdv, LocalDate> dateP;
+    @FXML
+    public TableColumn<Rdv, LocalTime> heureP;
+    @FXML
+    public TableColumn<Rdv,String> objetP;
+    @FXML
+    public TextField lepatient;
 
     ObservableList<Rdv> list = FXCollections.observableArrayList();
     ObservableList<Rdv> listA = FXCollections.observableArrayList();
+    ObservableList<Rdv> listP = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         initCol();
         initCol1();
+        initCol2();
         loadTodayRdv();
     }
     @FXML
@@ -103,7 +118,6 @@ public class MenuController implements Initializable {
         DataBaseHandler handler=DataBaseHandler.getInstance();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Calendar calobj = Calendar.getInstance();
-        System.out.println(df.format(calobj.getTime()));
         String qu = "SELECT * FROM rdv where date='"+df.format(calobj.getTime())+"'";
         ResultSet rs = handler.execQuery(qu);
         try {
@@ -114,7 +128,7 @@ public class MenuController implements Initializable {
                 LocalTime heure = rs.getTime("heure").toLocalTime();
                 String objet = rs.getString("objet");
                 String nomEtPrenomP=rs.getString("nomEtPrenomP");
-                System.out.println(nomEtPrenomP);
+
                 list.add(new Rdv(id,idPatient, nomEtPrenomP, date,heure,objet));
             }
         } catch (SQLException ex) {
@@ -143,6 +157,46 @@ public class MenuController implements Initializable {
         objet.setCellValueFactory(new PropertyValueFactory("objet"));
 
     }
+    private void initCol2() {
+        idP.setCellValueFactory(new PropertyValueFactory("id"));
+        idPatientP.setCellValueFactory(new PropertyValueFactory("idPatient"));
+        nomEtPrenomPP.setCellValueFactory(new PropertyValueFactory("nomEtPrenomP"));
+        dateP.setCellValueFactory(new PropertyValueFactory("date"));
+        heureP.setCellValueFactory(new PropertyValueFactory("heure"));
+        objetP.setCellValueFactory(new PropertyValueFactory("objet"));
+
+    }
+    @FXML
+    public void loadPatient(){
+        initCol1();
+        listP.clear();
+        DataBaseHandler handler=DataBaseHandler.getInstance();
+        String patient = lepatient.getText();
+        if (patient.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Choisissez l'id du patient");
+            alert.showAndWait();
+            return;
+        }
+        String qu = "SELECT * FROM rdv where idPatient="+patient;
+        ResultSet rs = handler.execQuery(qu);
+        try {
+            while (rs.next()) {
+                int id=rs.getInt("id");
+                int idPatient  = rs.getInt("idPatient");
+                LocalDate date = rs.getDate("date").toLocalDate();
+                LocalTime heure = rs.getTime("heure").toLocalTime();
+                String objet = rs.getString("objet");
+                String nomEtPrenomP=rs.getString("nomEtPrenomP");
+                listP.add(new Rdv(id,idPatient, nomEtPrenomP, date,heure,objet));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PatientAddController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        tableRdvP.setItems(listP);
+    }
     @FXML
     public void loadOtherDay()
 
@@ -167,7 +221,7 @@ public class MenuController implements Initializable {
                 LocalTime heure = rs.getTime("heure").toLocalTime();
                 String objet = rs.getString("objet");
                 String nomEtPrenomP=rs.getString("nomEtPrenomP");
-                System.out.println(nomEtPrenomP);
+
                 listA.add(new Rdv(id,idPatient, nomEtPrenomP, date,heure,objet));
             }
         } catch (SQLException ex) {

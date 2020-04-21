@@ -63,7 +63,7 @@ public class PatientAddController implements Initializable {
             return;
         }
         String query = "INSERT INTO `patient` (`nom`, `prenom`, `adresse`, `tel`, `mail`, `infosMed`) VALUES ('" + nomP + "', '" + prenomP + "', '" + adresseP + "', '" + telP + "', '" + mailP + "', '" + infosMedP + "')";
-        System.out.println(query);
+
         if (dataBaseHandler.execAction(query)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);

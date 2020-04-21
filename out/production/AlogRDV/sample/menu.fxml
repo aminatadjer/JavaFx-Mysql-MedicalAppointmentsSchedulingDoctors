@@ -87,7 +87,7 @@
                                             <bottom>
                                                 <HBox alignment="CENTER" prefHeight="69.0" prefWidth="557.0" BorderPane.alignment="CENTER">
                                                     <children>
-                                                        <Button onAction="#loadTodayRdv" text="Rafraichire">
+                                                        <Button onAction="#loadTodayRdv" text="Rafraichir">
                                                             <HBox.margin>
                                                                 <Insets right="20.0" />
                                                             </HBox.margin>
@@ -139,6 +139,49 @@
                                        </BorderPane.margin>
                                     </DatePicker>
                                  </top>
+                                        </BorderPane>
+                                    </children></AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Par Patient">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+
+                                    <children>
+                                        <BorderPane layoutX="251.0" layoutY="71.0" prefHeight="412.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <center>
+                                                <ListView prefHeight="289.0" prefWidth="557.0" BorderPane.alignment="CENTER">
+
+                                                    <TableView fx:id="tableRdvP" minWidth="-Infinity" prefHeight="383.0" prefWidth="601.0">
+                                                        <columns>
+                                                            <TableColumn fx:id="idP" prefWidth="38.0" text="id" />
+                                                            <TableColumn fx:id="idPatientP" prefWidth="67.0" text="idPatient" />
+                                                            <TableColumn fx:id="nomEtPrenomPP" prefWidth="166.0" text="Nom et prénom du patient" />
+                                                            <TableColumn fx:id="dateP" prefWidth="96.0" text="Date" />
+                                                            <TableColumn fx:id="heureP" prefWidth="70.0" text="Heure" />
+                                                            <TableColumn fx:id="objetP" prefWidth="162.0" text="Objet" />
+                                                        </columns>
+                                                    </TableView>
+
+                                                </ListView>
+                                            </center>
+                                            <bottom>
+                                                <HBox alignment="CENTER" prefHeight="69.0" prefWidth="557.0" BorderPane.alignment="CENTER">
+                                                    <children>
+                                                        <Button onAction="#loadPatient" text="Rechercher">
+                                                            <HBox.margin>
+                                                                <Insets right="20.0" />
+                                                            </HBox.margin>
+                                                        </Button>
+                                                    </children>
+                                                </HBox>
+                                            </bottom>
+                                            <top>
+                                                <TextField fx:id="lepatient">
+                                       <BorderPane.margin>
+                                          <Insets bottom="10.0" left="200.0" right="200.0" top="10.0" />
+                                       </BorderPane.margin></TextField>
+                                            </top>
                                         </BorderPane>
                                     </children></AnchorPane>
                             </content>

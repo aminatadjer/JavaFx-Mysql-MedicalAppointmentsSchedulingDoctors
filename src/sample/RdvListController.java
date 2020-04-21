@@ -26,7 +26,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import database.DataBaseHandler;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -75,7 +74,7 @@ public class RdvListController implements Initializable {
                 LocalTime heure = rs.getTime("heure").toLocalTime();
                 String objet = rs.getString("objet");
                 String nomEtPrenomP=rs.getString("nomEtPrenomP");
-                System.out.println(nomEtPrenomP);
+
                 list.add(new Rdv(id,idPatient, nomEtPrenomP, date,heure,objet));
             }
         } catch (SQLException ex) {
@@ -132,6 +131,18 @@ public class RdvListController implements Initializable {
          alert1.setContentText("Suppression annulée");
          alert1.showAndWait();
      }
+    }
+    @FXML
+    public void handlePrintRdv(){
+        Rdv selectedForEdit = tableRdv.getSelectionModel().getSelectedItem();
+        if (selectedForEdit == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Vous n'avez selctionné aucun rendez-vous");
+            alert.showAndWait();
+            return;
+        }
+
     }
 @FXML
 public void handleRdvUpdate(ActionEvent event) {
