@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RdvListController">
+    <children>
+        <TableView fx:id="tableRdv" prefHeight="400.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="id" prefWidth="38.0" text="id" />
+                <TableColumn fx:id="idPatient" prefWidth="67.0" text="idPatient" />
+                <TableColumn fx:id="nomEtPrenomP" prefWidth="166.0" text="Nom et prénom du patient" />
+                <TableColumn fx:id="date" prefWidth="96.0" text="Date" />
+                <TableColumn fx:id="heure" prefWidth="70.0" text="Heure" />
+                <TableColumn fx:id="objet" prefWidth="162.0" text="Objet" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

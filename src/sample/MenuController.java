@@ -27,8 +27,13 @@ public class MenuController implements Initializable {
     public void loadAddRdv(){
         loadWindow("addRdv.fxml", "Ajouter un rendez-vous");
     }
+    @FXML
     public void loadListPatients(){
         loadWindow("patientList.fxml", "Liste des patients");
+    }
+    @FXML
+    public void loadListRdv(){
+        loadWindow("rdvList.fxml", "Liste des rendez-vous");
     }
     void loadWindow(String loc, String title) {
         try {
