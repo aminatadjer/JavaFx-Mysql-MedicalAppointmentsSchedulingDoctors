@@ -1,5 +1,7 @@
 package database;
 
+import sample.Rdv;
+
 import javax.swing.*;
 import java.sql.*;
 import java.util.Properties;
@@ -69,4 +71,38 @@ public class DataBaseHandler {
         } finally {
         }
     }
+
+    public Boolean deleteRdv(Rdv selectedRdv) {
+        try {
+            String deleteStatement = "DELETE FROM rdv WHERE id = ?";
+            PreparedStatement stmt = conn.prepareStatement(deleteStatement);
+            String id=selectedRdv.getId().toString();
+            stmt.setString(1,id);
+            int res = stmt.executeUpdate();
+            if (res == 1) {
+                return true;
+            }
+        }
+        catch (SQLException ex) {
+
+        }
+        return false;
+    }
+    public boolean updateAppointment(Rdv rdv) {
+        try {
+            String update = "UPDATE rdv SET date=?, heure=?, objet=? WHERE ID=?";
+            PreparedStatement stmt = conn.prepareStatement(update);
+            stmt.setString(1, rdv.getDate().toString());
+            stmt.setString(2, rdv.getHeure().toString());
+            stmt.setString(3, rdv.getObjet());
+            stmt.setString(4, rdv.getId().toString());
+            int res = stmt.executeUpdate();
+            return (res > 0);
+        }
+        catch (SQLException ex) {
+
+        }
+        return false;
+    }
+
 }

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RdvListController">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RdvListController">
     <children>
         <TableView fx:id="tableRdv" prefHeight="400.0" prefWidth="600.0">
             <columns>
@@ -14,6 +17,14 @@
                 <TableColumn fx:id="heure" prefWidth="70.0" text="Heure" />
                 <TableColumn fx:id="objet" prefWidth="162.0" text="Objet" />
             </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="Supprimer" onAction="#handleRdvDelete" />
+                  <MenuItem mnemonicParsing="false" text="Modifier" onAction="#handleRdvUpdate" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
         </TableView>
     </children>
 </AnchorPane>

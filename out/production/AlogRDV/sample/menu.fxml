@@ -64,21 +64,39 @@
                     <tabs>
                         <Tab text="Aujourd'hui">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="377.0" prefWidth="557.0">
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 
-                                    <TableView fx:id="tableRdv" minWidth="-Infinity" prefHeight="383.0" prefWidth="601.0">
-                                        <columns>
-                                            <TableColumn fx:id="id" prefWidth="38.0" text="id" />
-                                            <TableColumn fx:id="idPatient" prefWidth="67.0" text="idPatient" />
-                                            <TableColumn fx:id="nomEtPrenomP" prefWidth="166.0" text="Nom et prénom du patient" />
-                                            <TableColumn fx:id="date" prefWidth="96.0" text="Date" />
-                                            <TableColumn fx:id="heure" prefWidth="70.0" text="Heure" />
-                                            <TableColumn fx:id="objet" prefWidth="162.0" text="Objet" />
-                                        </columns>
-                                    </TableView>
-                           <Button layoutX="252.0" layoutY="383.0" mnemonicParsing="false" onAction="#loadTodayRdv" text="Reload" />
+                                    <children>
+                                        <BorderPane layoutX="251.0" layoutY="71.0" prefHeight="412.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <center>
+                                                <ListView prefHeight="289.0" prefWidth="557.0" BorderPane.alignment="CENTER">
 
-                                </AnchorPane>
+                                                    <TableView fx:id="tableRdv" minWidth="-Infinity" prefHeight="383.0" prefWidth="601.0">
+                                                        <columns>
+                                                            <TableColumn fx:id="id" prefWidth="38.0" text="id" />
+                                                            <TableColumn fx:id="idPatient" prefWidth="67.0" text="idPatient" />
+                                                            <TableColumn fx:id="nomEtPrenomP" prefWidth="166.0" text="Nom et prénom du patient" />
+                                                            <TableColumn fx:id="date" prefWidth="96.0" text="Date" />
+                                                            <TableColumn fx:id="heure" prefWidth="70.0" text="Heure" />
+                                                            <TableColumn fx:id="objet" prefWidth="162.0" text="Objet" />
+                                                        </columns>
+                                                    </TableView>
+
+                                                </ListView>
+                                            </center>
+                                            <bottom>
+                                                <HBox alignment="CENTER" prefHeight="69.0" prefWidth="557.0" BorderPane.alignment="CENTER">
+                                                    <children>
+                                                        <Button onAction="#loadTodayRdv" text="Rafraichire">
+                                                            <HBox.margin>
+                                                                <Insets right="20.0" />
+                                                            </HBox.margin>
+                                                        </Button>
+                                                    </children>
+                                                </HBox>
+                                            </bottom>
+                                        </BorderPane>
+                                    </children></AnchorPane>
                             </content>
                         </Tab>
                         <Tab text="Autre Jour">
@@ -88,7 +106,7 @@
                                     <children>
                                         <BorderPane layoutX="251.0" layoutY="71.0" prefHeight="412.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <center>
-                                                <ListView prefHeight="289.0" prefWidth="557.0" BorderPane.alignment="CENTER">
+
 
                                                         <TableView fx:id="tableRdvA" minWidth="-Infinity" prefHeight="383.0" prefWidth="601.0">
                                                             <columns>
@@ -101,7 +119,7 @@
                                                             </columns>
                                                         </TableView>
 
-                                                </ListView>
+
                                             </center>
                                             <bottom>
                                                 <HBox alignment="CENTER" prefHeight="69.0" prefWidth="557.0" BorderPane.alignment="CENTER">

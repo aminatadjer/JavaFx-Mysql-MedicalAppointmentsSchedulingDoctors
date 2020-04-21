@@ -59,7 +59,7 @@ public class MenuController implements Initializable {
     @FXML
     public TableColumn<Rdv,String> objetA;
     @FXML
-     public DatePicker autreJour;
+    public DatePicker autreJour;
 
 
     ObservableList<Rdv> list = FXCollections.observableArrayList();
@@ -67,6 +67,7 @@ public class MenuController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initCol();
+        initCol1();
         loadTodayRdv();
     }
     @FXML
@@ -109,8 +110,8 @@ public class MenuController implements Initializable {
             while (rs.next()) {
                 int id=rs.getInt("id");
                 int idPatient  = rs.getInt("idPatient");
-                Date date = rs.getDate("date");
-                Time heure = rs.getTime("heure");
+                LocalDate date = rs.getDate("date").toLocalDate();
+                LocalTime heure = rs.getTime("heure").toLocalTime();
                 String objet = rs.getString("objet");
                 String nomEtPrenomP=rs.getString("nomEtPrenomP");
                 System.out.println(nomEtPrenomP);
@@ -162,8 +163,8 @@ public class MenuController implements Initializable {
             while (rs.next()) {
                 int id=rs.getInt("id");
                 int idPatient  = rs.getInt("idPatient");
-                Date date = rs.getDate("date");
-                Time heure = rs.getTime("heure");
+                LocalDate date = rs.getDate("date").toLocalDate();
+                LocalTime heure = rs.getTime("heure").toLocalTime();
                 String objet = rs.getString("objet");
                 String nomEtPrenomP=rs.getString("nomEtPrenomP");
                 System.out.println(nomEtPrenomP);

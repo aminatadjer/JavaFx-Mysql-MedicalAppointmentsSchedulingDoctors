@@ -37,10 +37,11 @@ public class RdvAddController implements Initializable {
     public Button annulerRdv;
     @FXML
     private AnchorPane rootPane;
+    private Boolean isInEditMode = Boolean.FALSE;
+    DataBaseHandler dataBaseHandler=DataBaseHandler.getInstance();
 
-    DataBaseHandler dataBaseHandler;
-
-
+int id;
+String nometprenom;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dataBaseHandler=DataBaseHandler.getInstance();
@@ -59,6 +60,10 @@ public class RdvAddController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Veuillez remplir tous les champs");
             alert.showAndWait();
+            return;
+        }
+        if (isInEditMode){
+            handleEditOperation();
             return;
         }
         String q="Select nom,prenom from patient where id="+idPatientR.toString();
@@ -104,5 +109,30 @@ public class RdvAddController implements Initializable {
         Stage stage = (Stage) rootPane.getScene().getWindow();
         stage.close();
     }
-
+    public void inflateUI(Rdv rdv) {
+        id=rdv.getId();
+        idPatient.setText(rdv.getIdPatient().toString());
+        nometprenom=rdv.getNomEtPrenomP();
+        date.setValue(rdv.getDate());
+        heure.setValue(rdv.getHeure());
+        objet.setText(rdv.getObjet());
+        idPatient.setEditable(false);
+        isInEditMode = Boolean.TRUE;
+    }
+    private void handleEditOperation() {
+        Rdv rdv = new Rdv(id,Integer.parseInt(idPatient.getText()),nometprenom,date.getValue(),heure.getValue(),objet.getText());
+        if (dataBaseHandler.updateAppointment(rdv)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Modification réussie");
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Modification echouée");
+            alert.showAndWait();
+        }
+    }
 }
+
+

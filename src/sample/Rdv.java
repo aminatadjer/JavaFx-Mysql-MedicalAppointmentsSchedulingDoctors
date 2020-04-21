@@ -1,17 +1,21 @@
 package sample;
 
+import javafx.fxml.Initializable;
+
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Rdv {
     private final int id;
     private final int idPatient;
     private final String nomEtPrenomP;
-    private final Date date;
-    private final Time heure;
+    private final LocalDate date;
+    private final LocalTime heure;
     private final String objet;
 
-    public Rdv(int id, int idPatient, String nomEtPrenomPatient, Date date, Time heure, String objet) {
+    public Rdv(int id, int idPatient, String nomEtPrenomPatient, LocalDate date, LocalTime heure, String objet) {
         this.id = id;
         this.idPatient = idPatient;
         this.nomEtPrenomP = nomEtPrenomPatient;
@@ -20,19 +24,19 @@ public class Rdv {
         this.objet = objet;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public int getIdPatient() {
+    public Integer getIdPatient() {
         return idPatient;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public Time getHeure() {
+    public LocalTime getHeure() {
         return heure;
     }
 
